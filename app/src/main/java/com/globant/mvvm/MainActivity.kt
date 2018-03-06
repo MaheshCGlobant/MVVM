@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
         showUserRegistrationFragment();
     }
 
-
     private fun showUserRegistrationFragment() {
         var fm: FragmentManager = supportFragmentManager
         var ft = fm.beginTransaction()
@@ -52,6 +51,7 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
     override fun onBackPressed() {
         if (selectedFragment.equals(RegisterUserFragment.TAG)) {
             hideUserRegistrationFragment()
+
         } else {
             super.onBackPressed()
         }
