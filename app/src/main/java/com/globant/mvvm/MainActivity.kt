@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
         var ft = fm.beginTransaction()
         ft.replace(R.id.frameLayout, allUsersListFragment)
         ft.commit()
-        selectedFragment = AllUsersListFragment.TAG;
+        selectedFragment = AllUsersListFragment.TAG
     }
 
     override fun onBackPressed() {
