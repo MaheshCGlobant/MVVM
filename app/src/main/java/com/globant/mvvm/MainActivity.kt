@@ -11,9 +11,10 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
     lateinit var registerUserFragment: RegisterUserFragment;
     lateinit var allUsersListFragment: AllUsersListFragment
 
-    lateinit var selectedFragment: String;
+    lateinit var selectedFragment: String
+
     override fun disposeFragment() {
-        hideUserRegistrationFragment();
+        hideUserRegistrationFragment()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
     private fun hideUserRegistrationFragment() {
         var fm: FragmentManager = supportFragmentManager
         fm.popBackStack()
-        selectedFragment=AllUsersListFragment.TAG
+        selectedFragment = AllUsersListFragment.TAG
     }
 
     private fun showAllUsersList() {
@@ -48,9 +49,9 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
     }
 
     override fun onBackPressed() {
-        if(selectedFragment.equals(RegisterUserFragment.TAG)){
+        if (selectedFragment.equals(RegisterUserFragment.TAG)) {
             hideUserRegistrationFragment()
-        }else {
+        } else {
             super.onBackPressed()
         }
     }
