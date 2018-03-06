@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
         showUserRegistrationFragment();
     }
 
+
     private fun showUserRegistrationFragment() {
         var fm: FragmentManager = supportFragmentManager
         var ft = fm.beginTransaction()
