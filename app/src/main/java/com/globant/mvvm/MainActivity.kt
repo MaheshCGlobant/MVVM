@@ -8,7 +8,7 @@ import com.globant.mvvm.features.RegisterUserFragment
 
 class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
 
-    lateinit var registerUserFragment: RegisterUserFragment;
+    lateinit var registerUserFragment: RegisterUserFragment
     lateinit var allUsersListFragment: AllUsersListFragment
 
     lateinit var selectedFragment: String
