@@ -1,5 +1,6 @@
 package com.globant.mvvm.di
 
+import com.globant.mvvm.features.AllUsersListFragment
 import com.globant.mvvm.features.RegisterUserFragment
 import dagger.Subcomponent
 
@@ -8,4 +9,5 @@ import dagger.Subcomponent
 interface FragmentComponent {
 //    fun inject(appCompatActivity: AppCompatActivity)
     fun inject(appCompatActivity: RegisterUserFragment)
+    fun inject(appCompatActivity: AllUsersListFragment)
 }

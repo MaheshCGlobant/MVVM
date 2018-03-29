@@ -1,10 +1,13 @@
 package com.globant.mvvm
 
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.globant.mvvm.features.AllUsersListFragment
 import com.globant.mvvm.features.RegisterUserFragment
+import com.globant.mvvm.viewmodel.AllUsersListViewModel
 
 class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
 
@@ -12,6 +15,7 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
     lateinit var allUsersListFragment: AllUsersListFragment
 
     lateinit var selectedFragment: String
+    lateinit var floatingActionButton: FloatingActionButton
 
     override fun disposeFragment() {
         hideUserRegistrationFragment()
@@ -22,8 +26,14 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
         registerUserFragment = RegisterUserFragment()
         allUsersListFragment = AllUsersListFragment()
         setContentView(R.layout.activity_main)
+
+        floatingActionButton= findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        floatingActionButton.setOnClickListener({
+            showUserRegistrationFragment();
+        })
+
         showAllUsersList()
-        showUserRegistrationFragment();
+
     }
 
     private fun showUserRegistrationFragment() {
@@ -32,12 +42,14 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
         ft.replace(R.id.frameLayout, registerUserFragment).addToBackStack(RegisterUserFragment.TAG)
         ft.commit()
         selectedFragment = RegisterUserFragment.TAG;
+        floatingActionButton.visibility= View.GONE
     }
 
     private fun hideUserRegistrationFragment() {
         var fm: FragmentManager = supportFragmentManager
         fm.popBackStack()
         selectedFragment = AllUsersListFragment.TAG
+        floatingActionButton.visibility= View.VISIBLE
     }
 
     private fun showAllUsersList() {
@@ -46,6 +58,7 @@ class MainActivity : AppCompatActivity(), RegisterUserFragment.RegisterUserInt {
         ft.replace(R.id.frameLayout, allUsersListFragment)
         ft.commit()
         selectedFragment = AllUsersListFragment.TAG
+        floatingActionButton.visibility= View.VISIBLE
     }
 
     override fun onBackPressed() {

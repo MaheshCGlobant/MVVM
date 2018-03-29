@@ -1,5 +1,6 @@
 package com.globant.mvvm.presenter
 
+import android.arch.lifecycle.LiveData
 import android.database.Observable
 import com.globant.mvvm.database.User
 
@@ -9,5 +10,5 @@ import com.globant.mvvm.database.User
  */
 
 interface AllUsersPContract:BasePContract{
-    fun getAllUsers():Observable<List<User>>
+    fun getAllUsers():LiveData<List<User>>
 }

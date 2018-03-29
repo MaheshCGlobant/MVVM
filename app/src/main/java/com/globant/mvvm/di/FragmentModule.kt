@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.Provides
 import org.jetbrains.annotations.NotNull
 import android.arch.lifecycle.ViewModelProviders
+import com.globant.mvvm.viewmodel.AllUsersListViewModel
 import com.globant.mvvm.viewmodel.RegisterUserViewModel
 
 
@@ -18,10 +19,16 @@ class FragmentModule(val activity: FragmentActivity) {
 
     @Provides
     fun provideRegisterUserViewModel(userRepository: UserRepository): RegisterUserViewModel {
-        var registerUserViewModel:RegisterUserViewModel=ViewModelProviders.of(activity).get(RegisterUserViewModel::class.java);
+        var registerUserViewModel: RegisterUserViewModel = ViewModelProviders.of(activity).get(RegisterUserViewModel::class.java)
         registerUserViewModel.setUserRepository(userRepository);
+        return registerUserViewModel;
+    }
 
-        return registerUserViewModel ;
+    @Provides
+    fun providesAllUsersListViewModel(userRepository: UserRepository): AllUsersListViewModel {
+        var allUsersListViewModel: AllUsersListViewModel = ViewModelProviders.of(activity).get(AllUsersListViewModel::class.java)
+        allUsersListViewModel.setUserRepository(userRepository)
+        return allUsersListViewModel
     }
 
     @NotNull

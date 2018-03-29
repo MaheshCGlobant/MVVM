@@ -21,3 +21,6 @@ class MyApplication : Application() {
 
     fun getAppComponent():AppComponent=applicationComponent
 }
+
+fun MyApplication.draw(){
+}
