@@ -52,7 +52,7 @@ class RegisterUserFragment : AbstractFragment<RegisterUserPContract, RegisterUse
         super.onViewCreated(view, savedInstanceState)
 
 
-        RxTextView.afterTextChangeEvents(activity.first_name).subscribe(Consumer {
+        RxTextView.afterTextChangeEvents(first_name).subscribe(Consumer {
             activity.last_name.isEnabled = it.view().text.isNotEmpty()
         })
 
@@ -61,7 +61,7 @@ class RegisterUserFragment : AbstractFragment<RegisterUserPContract, RegisterUse
         })
 
         RxTextView.afterTextChangeEvents(mobile_no).subscribe(Consumer {
-            activity.mobile_no.isEnabled = it.view().text.isNotEmpty()
+            activity.email.isEnabled = it.view().text.isNotEmpty()
         })
 
         RxTextView.afterTextChangeEvents(email).subscribe(Consumer {
