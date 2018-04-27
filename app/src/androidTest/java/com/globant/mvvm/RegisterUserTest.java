@@ -20,7 +20,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
-public class MainActivityTest {
+public class RegisterUserTest {
 
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
@@ -69,7 +69,6 @@ public class MainActivityTest {
         onView(withId(R.id.save)).check(ViewAssertions.matches(Matchers.not(isEnabled())));
         Espresso.onView(ViewMatchers.withId(R.id.email))
                 .perform(ViewActions.typeText("mahesh.chakkarwar@globant.com"), ViewActions.closeSoftKeyboard());
-//        Espresso.onView(withId(R.id.save)).check(ViewAssertions.matches(ViewMatchers.isEnabled()));
         Espresso.onView(withId(R.id.save)).perform(ViewActions.click());
     }
 }
